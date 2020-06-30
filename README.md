@@ -6,17 +6,23 @@ Por enquanto ele não faz nada como abrir, excluir e editar arquivos/pastas, ele
 
 
 
-## Comandos:
+## Comandos
 
 - help - Mostra os comandos na tela
 
-- name - Muda o seu nome de usuario
+- name - Muda o seu nome de usuario. Ex: name Will Smith
 
 - clear - Limpa o conteudo da tela
 
 - dectobi - Converte um numero em decimal para binario
 
 - sum - Soma dois numeros
+
+- div - Divide dois numeros
+
+- mult - Multiplica dois numeros
+
+- sub - Subtrai dois numeros
 
 
 
