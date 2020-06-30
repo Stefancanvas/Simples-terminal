@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Headers/Mat.h"
 
 std::string name = "DEFAULT";
 
@@ -6,7 +7,7 @@ void checkInput(std::string input);
 void chName();
 void clear();
 void dectobi();
-void sum();
+
 
 
 int main(){
@@ -25,8 +26,11 @@ int main(){
 }
 
 void checkInput(std::string input){
-  std::string comandos[] = {"help", "name","clear","dectobi","sum"};
-  std::string help[] = {"Mostra os comandos na tela", "Muda o seu nome de usuario", "Limpa o conteudo da tela","Converte um numero em decimal para binario","Soma dois numeros"};
+  std::string comandos[] = {"help", "name","clear","dectobi","sum","div","mult","sub"};
+  std::string help[] = {"Mostra os comandos na tela", "Muda o seu nome de usuario. Ex: name Will Smith",
+   "Limpa o conteudo da tela","Converte um numero em decimal para binario",
+   "Soma dois numeros","Divide dois numeros","Multiplica dois numeros",
+   "Subtrai dois numeros"};
 
   int tam = sizeof(comandos)/sizeof(*comandos);
   for(int i = 0; i < tam; i++){
@@ -47,7 +51,16 @@ void checkInput(std::string input){
           dectobi();
           break;
         case 4:
-          sum();
+          mat::sum();
+          break;
+        case  5:
+          mat::div();
+          break;
+        case 6:
+          mat::mult();
+          break;
+        case 7:
+          mat::sub();
           break;
         default:
           break;
@@ -58,9 +71,7 @@ void checkInput(std::string input){
 }
 
 void chName(){
-  std::cout<<std::endl<<"seu nome atual é: "<<name<<std::endl<<"Insira seu novo nome: ";
   std::string nName;
-  std::cin.ignore();
   getline(std::cin, nName);
   name = nName;
 }
@@ -90,10 +101,4 @@ void dectobi(){
   }
   std::cout<<std::endl;
 
-}
-
-void sum(){
-  int n1,n2;
-  std::cin>>n1>>n2;
-  std::cout<<n1+n2;
 }
