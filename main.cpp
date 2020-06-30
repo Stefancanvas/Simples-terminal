@@ -1,12 +1,12 @@
 #include <iostream>
 #include "Headers/Mat.h"
+#include "Headers/Bin.h"
 
 std::string name = "DEFAULT";
 
 void checkInput(std::string input);
 void chName();
 void clear();
-void dectobi();
 
 
 
@@ -26,17 +26,20 @@ int main(){
 }
 
 void checkInput(std::string input){
-  std::string comandos[] = {"help", "name","clear","dectobi","sum","div","mult","sub"};
+  std::string comandos[] = {"help", "name","clear","inttobin",
+                            "bintoint","soma","div","mult","sub"};
   std::string help[] = {"Mostra os comandos na tela", "Muda o seu nome de usuario. Ex: name Will Smith",
-   "Limpa o conteudo da tela","Converte um numero em decimal para binario",
-   "Soma dois numeros","Divide dois numeros","Multiplica dois numeros",
-   "Subtrai dois numeros"};
+                        "Limpa o conteudo da tela","Converte um numero em decimal para binario",
+                        "Converte binario para um numero inteiro",
+                        "Soma dois numeros","Divide dois numeros","Multiplica dois numeros",
+                        "Subtrai dois numeros"};
 
   int tam = sizeof(comandos)/sizeof(*comandos);
   for(int i = 0; i < tam; i++){
     if(input == comandos[i]){
       switch(i){
         case 0:
+	  std::cout<<std::endl;
           for(int j = 0; j <tam;j++){
             std::cout<<comandos[j]<<" - "<<help[j]<<std::endl;
           }
@@ -48,18 +51,25 @@ void checkInput(std::string input){
           clear();
           break;
         case 3:
-          dectobi();
+          bin::inttobin();
           break;
         case 4:
-          mat::sum();
+        {
+          std::string inp;
+          std::cin>>inp;
+          std::cout<<bin::bintoint(inp);
           break;
-        case  5:
-          mat::div();
+        }
+        case 5:
+          mat::soma();
           break;
         case 6:
-          mat::mult();
+          mat::div();
           break;
         case 7:
+          mat::mult();
+          break;
+        case 8:
           mat::sub();
           break;
         default:
@@ -72,6 +82,7 @@ void checkInput(std::string input){
 
 void chName(){
   std::string nName;
+  std::cin.ignore();
   getline(std::cin, nName);
   name = nName;
 }
@@ -80,25 +91,4 @@ void clear(){
   for(int i = 0; i<100;i++){
     std::cout<<"\n\n\n\n\n";
   }
-}
-
-void dectobi(){
-  int inp;
-  int bit;
-  std::cin>>inp;
-  if(inp <= 15)
-    bit = 4;
-  else if(inp <= 255 && inp > 15)
-    bit = 8;
-  else if(inp <= 65535 && inp > 255)
-    bit = 16;
-
-  for(int i = bit -1; i>=0;i--){
-    if(inp & (1<<i))
-      std::cout << "1";
-    else
-      std::cout<< "0";
-  }
-  std::cout<<std::endl;
-
 }

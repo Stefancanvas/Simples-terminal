@@ -1,7 +1,7 @@
 #pragma once
 
 namespace mat{
-  void sum();
+  void soma();
   void div();
   void mult();
   void sub();
