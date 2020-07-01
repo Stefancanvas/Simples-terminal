@@ -38,7 +38,9 @@ void checkInput(std::string input){
                         "mult     - Multiplica dois numeros",
                         "sub      - Subtrai dois numeros",
                         "bswi     - Pega um numero em binario e faz um switch.\n"
-                        "         Ex.: \"bswi 100 1\" , faz switch do numero 100 para direita\n"
+                        "         Ex.: \"bswi 100 1\" , faz switch do numero 100 1 vez para direita\n"
+                        "         bswi 100 2 faz switch 2 vezes para a direita"
+                        "         bswi 100 -2 faz switch 2 vezes para a esquerda"
                         "         O sinal indica se será um switch para a esquerda ou para a direita\n"
                         "         Sendo + para a esquerda e - para a direita",
                         "iswi     -Faz a mesma coisa que o bswi, mas requer e retorna um nmr inteiro"
