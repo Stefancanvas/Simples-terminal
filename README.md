@@ -6,23 +6,20 @@ Por enquanto ele não faz nada como abrir, excluir e editar arquivos/pastas, ele
 
 ## Comandos
 
-- help - Mostra os comandos na tela
-
-- name - Muda o seu nome de usuario. Ex: name Will Smith
-
-- clear - Limpa o conteudo da tela
-
-- inttobi - Converte um numero em decimal para binario
-
+- help     - Mostra os comandos na tela
+- name     - Muda o seu nome de usuario. Ex: name Will Smith
+- clear    - Limpa o conteudo da tela
+- inttobin - Converte um numero em decimal para binario
 - bintoint - Converte binario para um numero inteiro
-
-- sum - Soma dois numeros
-
-- div - Divide dois numeros
-
-- mult - Multiplica dois numeros
-
-- sub - Subtrai dois numeros
+- soma     - Soma dois numeros
+- div      - Divide dois numeros
+- mult     - Multiplica dois numeros
+- sub      - Subtrai dois numeros
+- bswi     - Pega um numero em binario e faz um switch.
+           Ex.: "bswi 100 1" , faz switch do numero 100 para direita
+           O sinal indica se será um switch para a esquerda ou para a direita
+           Sendo + para a esquerda e - para a direita
+- iswi     -Faz a mesma coisa que o bswi, mas requer e retorna um nmr inteiro
 
 ## Coisas a fazer:
 
