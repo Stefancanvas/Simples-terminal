@@ -27,21 +27,31 @@ int main(){
 
 void checkInput(std::string input){
   std::string comandos[] = {"help", "name","clear","inttobin",
-                            "bintoint","soma","div","mult","sub"};
-  std::string help[] = {"Mostra os comandos na tela", "Muda o seu nome de usuario. Ex: name Will Smith",
-                        "Limpa o conteudo da tela","Converte um numero em decimal para binario",
-                        "Converte binario para um numero inteiro",
-                        "Soma dois numeros","Divide dois numeros","Multiplica dois numeros",
-                        "Subtrai dois numeros"};
+                            "bintoint","soma","div","mult","sub","bswi","iswi"};
+  std::string help[] = {"help     - Mostra os comandos na tela",
+                        "name     - Muda o seu nome de usuario. Ex: name Will Smith",
+                        "clear    - Limpa o conteudo da tela",
+                        "inttobin - Converte um numero em decimal para binario",
+                        "bintoint - Converte binario para um numero inteiro",
+                        "soma     - Soma dois numeros",
+                        "div      - Divide dois numeros",
+                        "mult     - Multiplica dois numeros",
+                        "sub      - Subtrai dois numeros",
+                        "bswi     - Pega um numero em binario e faz um switch.\n"
+                        "         Ex.: \"bswi 100 1\" , faz switch do numero 100 para direita\n"
+                        "         O sinal indica se será um switch para a esquerda ou para a direita\n"
+                        "         Sendo + para a esquerda e - para a direita",
+                        "iswi     -Faz a mesma coisa que o bswi, mas requer e retorna um nmr inteiro"
+                      };
 
   int tam = sizeof(comandos)/sizeof(*comandos);
   for(int i = 0; i < tam; i++){
     if(input == comandos[i]){
       switch(i){
         case 0:
-	  std::cout<<std::endl;
+	        std::cout<<std::endl;
           for(int j = 0; j <tam;j++){
-            std::cout<<comandos[j]<<" - "<<help[j]<<std::endl;
+            std::cout<<help[j]<<std::endl;
           }
           break;
         case 1:
@@ -50,11 +60,13 @@ void checkInput(std::string input){
         case 2:
           clear();
           break;
-        case 3:
-          bin::inttobin();
+        case 3:{
+          int inp;
+          std::cin>>inp;
+          bin::inttobin(inp);
           break;
-        case 4:
-        {
+        }
+        case 4:{
           std::string inp;
           std::cin>>inp;
           std::cout<<bin::bintoint(inp);
@@ -71,6 +83,12 @@ void checkInput(std::string input){
           break;
         case 8:
           mat::sub();
+          break;
+        case 9:
+          bin::bSwitch();
+          break;
+        case 10:
+          bin::iSwitch();
           break;
         default:
           break;

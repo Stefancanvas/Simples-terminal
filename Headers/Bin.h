@@ -4,5 +4,7 @@
 
 namespace bin{
   int bintoint(std::string inp);
-  void inttobin();
+  void inttobin(int inp);
+  void bSwitch();
+  void iSwitch();
 }
