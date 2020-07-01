@@ -13,8 +13,9 @@ namespace bin{
       return out;
     }
 
-    void inttobin(int inp){
+    std::string inttobin(int inp){
     int bit;
+    std::string out;
     if(inp <= 15 && inp>0)
       bit = 4;
     else if(inp <= 255 && inp > 15)
@@ -30,11 +31,11 @@ namespace bin{
 
     for(int i = bit -1; i>=0;i--){
       if(inp & (1<<i))
-        std::cout << "1";
+        out+="1";
       else
-        std::cout<< "0";
+        out+="0";
     }
-    std::cout<<std::endl;
+    return out;
   }
 
   void bSwitch(){
@@ -50,10 +51,10 @@ namespace bin{
     }
     else
       out = nmr;
-    inttobin(out);
+    std::cout<<inttobin(out);
   }
 
-  void iSwitch(){
+  int iSwitch(){
     int inp,out,sinal;
     std::cin>>inp>>sinal;
     if(sinal > 0)
@@ -64,8 +65,22 @@ namespace bin{
     }
     else
       out = inp;
-    std::cout<<out;
+  return out;
 
+  }
+
+  int iAnd(int inp1, int inp2){
+    int out;
+    out = inp1&inp2;
+    return out;
+  }
+
+  std::string bAnd(std::string inp1, std::string inp2){
+    int c1,c2,out;
+    c1 = bintoint(inp1);
+    c2 = bintoint(inp2);
+    out = c1&c2;
+    return inttobin(out);
   }
 
 }

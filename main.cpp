@@ -27,7 +27,9 @@ int main(){
 
 void checkInput(std::string input){
   std::string comandos[] = {"help", "name","clear","inttobin",
-                            "bintoint","soma","div","mult","sub","bswi","iswi"};
+                            "bintoint","soma","div","mult",
+                            "sub","bswi","iswi", "i&", "b&"
+                          };
   std::string help[] = {"help     - Mostra os comandos na tela",
                         "name     - Muda o seu nome de usuario. Ex: name Will Smith",
                         "clear    - Limpa o conteudo da tela",
@@ -39,11 +41,17 @@ void checkInput(std::string input){
                         "sub      - Subtrai dois numeros",
                         "bswi     - Pega um numero em binario e faz um switch.\n"
                         "         Ex.: \"bswi 100 1\" , faz switch do numero 100 1 vez para direita\n"
-                        "         bswi 100 2 faz switch 2 vezes para a direita"
-                        "         bswi 100 -2 faz switch 2 vezes para a esquerda"
+                        "         bswi 100 2 faz switch 2 vezes para a direita\n"
+                        "         bswi 100 -2 faz switch 2 vezes para a esquerda\n"
                         "         O sinal indica se será um switch para a esquerda ou para a direita\n"
                         "         Sendo + para a esquerda e - para a direita",
-                        "iswi     -Faz a mesma coisa que o bswi, mas requer e retorna um nmr inteiro"
+                        "iswi     - Faz a mesma coisa que o bswi, mas requer e retorna um nmr inteiro",
+                        "i&       - Realiza a operação de AND com um numero inteiro\n"
+                        "         Requer dois argumentos\n"
+                        "         Ex.: \"i& 5 6\" realiza 5&6, retornando 4",
+                        "b&       - Realiza a operação AND com um numero em binario\n"
+                        "         Requer dois argumentos\n"
+                        "         Ex.:\"b& 101 110\" realiza 101&110, retornando 100"
                       };
 
   int tam = sizeof(comandos)/sizeof(*comandos);
@@ -65,7 +73,7 @@ void checkInput(std::string input){
         case 3:{
           int inp;
           std::cin>>inp;
-          bin::inttobin(inp);
+          std::cout<<bin::inttobin(inp);
           break;
         }
         case 4:{
@@ -90,8 +98,20 @@ void checkInput(std::string input){
           bin::bSwitch();
           break;
         case 10:
-          bin::iSwitch();
+          std::cout<<bin::iSwitch();
           break;
+        case 11:{
+          int inp1,inp2;
+          std::cin>>inp1>>inp2;
+          std::cout<<bin::iAnd(inp1,inp2);
+        }
+        break;
+        case 12:{
+          std::string inp1,inp2;
+          std::cin>>inp1>>inp2;
+          std::cout<<bin::bAnd(inp1,inp2);
+        }
+        break;
         default:
           break;
       }
