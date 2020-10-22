@@ -28,7 +28,8 @@ int main(){
 void checkInput(std::string input){
   std::string comandos[] = {"help", "name","clear","inttobin",
                             "bintoint","soma","div","mult",
-                            "sub","bswi","iswi", "i&", "b&"
+                            "sub","bswi","iswi", "i&", "b&", "ihex",
+                            "hexi"
                           };
   std::string help[] = {"help     - Mostra os comandos na tela",
                         "name     - Muda o seu nome de usuario. Ex: name Will Smith",
@@ -51,7 +52,9 @@ void checkInput(std::string input){
                         "         Ex.: \"i& 5 6\" realiza 5&6, retornando 4",
                         "b&       - Realiza a operação AND com um numero em binario\n"
                         "         Requer dois argumentos\n"
-                        "         Ex.:\"b& 101 110\" realiza 101&110, retornando 100"
+                        "         Ex.:\"b& 101 110\" realiza 101&110, retornando 100\n",
+                        "ihex     - Converte uma Int para Hexadecimal\n",
+                        "hexi     - Converte um numero em hex para Int\n"
                       };
 
   int tam = sizeof(comandos)/sizeof(*comandos);
@@ -110,6 +113,18 @@ void checkInput(std::string input){
           std::string inp1,inp2;
           std::cin>>inp1>>inp2;
           std::cout<<bin::bAnd(inp1,inp2);
+        }
+        break;
+        case 13:{
+          int inp1;
+          std::cin>>inp1;
+          std::cout<<hex::ihex(inp1);
+        }
+        break;
+        case 14:{
+            std::string inp;
+            std::cin>>inp;
+            std::cout<<hex::hexi(inp);
         }
         break;
         default:
