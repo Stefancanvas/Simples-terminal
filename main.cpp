@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Headers/Mat.h"
 #include "Headers/Bin.h"
+#include "Headers/Files.h"
 
 std::string name = "DEFAULT";
 
@@ -19,6 +20,8 @@ int main(){
     std::cout<<std::endl<<name<<": ";
     std::cin>>input;
     checkInput(input);
+    if(input == "EXIT")
+        rodando = false;
   }
 
 
@@ -29,9 +32,10 @@ void checkInput(std::string input){
   std::string comandos[] = {"help", "name","clear","inttobin",
                             "bintoint","soma","div","mult",
                             "sub","bswi","iswi", "i&", "b&", "ihex",
-                            "hexi"
+                            "hexi","text","read"
                           };
-  std::string help[] = {"help     - Mostra os comandos na tela",
+  std::string help[] = {"help     - Mostra os comandos na tela\n"
+                        "           digite EXIT para sair",
                         "name     - Muda o seu nome de usuario. Ex: name Will Smith",
                         "clear    - Limpa o conteudo da tela",
                         "inttobin - Converte um numero em decimal para binario",
@@ -52,9 +56,14 @@ void checkInput(std::string input){
                         "         Ex.: \"i& 5 6\" realiza 5&6, retornando 4",
                         "b&       - Realiza a operação AND com um numero em binario\n"
                         "         Requer dois argumentos\n"
-                        "         Ex.:\"b& 101 110\" realiza 101&110, retornando 100\n",
-                        "ihex     - Converte uma Int para Hexadecimal\n",
-                        "hexi     - Converte um numero em hex para Int\n"
+                        "         Ex.:\"b& 101 110\" realiza 101&110, retornando 100",
+                        "ihex     - Converte uma Int para Hexadecimal",
+                        "hexi     - Converte um numero em hex para Int",
+                        "text     - Cria um arquivo de texto\n"
+                        "           OBS: ao dar enter voce nao consegue\n"
+                        "           voltar para a linha de cima para edita-la\n"
+                        "           Escreva \"EXIT;\" em uma linha sozinho para sair",
+                        "read     - Lê um arquivo de texto"
                       };
 
   int tam = sizeof(comandos)/sizeof(*comandos);
@@ -127,6 +136,17 @@ void checkInput(std::string input){
             std::cout<<hex::hexi(inp);
         }
         break;
+        case 15:{
+            std::string nome;
+            std::cin>>nome;
+            Files::criarArq(nome);
+        }
+        break;
+        case 16:{
+        std::string nome;
+        std::cin>>nome;
+        Files::read(nome);
+        }
         default:
           break;
       }
