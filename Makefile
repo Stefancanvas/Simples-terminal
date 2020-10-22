@@ -1,9 +1,15 @@
 
-compila:
-	g++ *.cpp Headers/*.cpp -o Terminal.o
+all:
+	g++ *.cpp Headers/*.cpp -o Terminal
 
-run: compila
-	./Terminal.o
+install: all
+	mkdir -p ~/.local/bin/
+	cp Terminal ~/.local/bin
+
+
+
+run: all
+	./Terminal
 
 clean:
-	rm Terminal.o
+	rm Terminal
