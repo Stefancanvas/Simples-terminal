@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <algorithm>
 
 namespace Files{
     void criarArq(std::string nome){
@@ -34,4 +35,22 @@ namespace Files{
         arq.close();
     }
 
+
+
+}
+
+namespace Str{
+    std::string reverse(std::string inp){
+        reverse(inp.begin(), inp.end());
+        return inp;
+    }
+
+    std::string remove(char ch, std::string inp){
+        for(int i = 0; i<inp.length(); i++){
+            if(inp[i] == ch){
+                inp.erase(inp.begin()+i);
+            }
+        }
+        return inp;
+    }
 }

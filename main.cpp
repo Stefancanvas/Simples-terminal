@@ -32,7 +32,7 @@ void checkInput(std::string input){
   std::string comandos[] = {"help", "name","clear","inttobin",
                             "bintoint","soma","div","mult",
                             "sub","bswi","iswi", "i&", "b&", "ihex",
-                            "hexi","text","read"
+                            "hexi","text","read","reverse", "remove"
                           };
   std::string help[] = {"help     - Mostra os comandos na tela\n"
                         "           digite EXIT para sair",
@@ -63,7 +63,11 @@ void checkInput(std::string input){
                         "           OBS: ao dar enter voce nao consegue\n"
                         "           voltar para a linha de cima para edita-la\n"
                         "           Escreva \"EXIT;\" em uma linha sozinho para sair",
-                        "read     - Lê um arquivo de texto"
+                        "read     - Lê um arquivo de texto",
+                        "reverse  - Reverte uma string\n"
+                        "           exemplo: reverse cavalaria",
+                        "remove   - Remove um caractere de uma string\n"
+                        "           exemplo: remove a abacate"
                       };
 
   int tam = sizeof(comandos)/sizeof(*comandos);
@@ -143,10 +147,23 @@ void checkInput(std::string input){
         }
         break;
         case 16:{
-        std::string nome;
-        std::cin>>nome;
-        Files::read(nome);
+            std::string nome;
+            std::cin>>nome;
+            Files::read(nome);
         }
+        break;
+        case 17:{
+            std::string inp;
+            std::cin>>inp;
+            std::cout<<Str::reverse(inp);
+        }
+        break;
+        case 18:{
+            std::string inp; char ch;
+            std::cin>>ch>>inp;
+            std::cout<<Str::remove(ch,inp);
+        }
+        break;
         default:
           break;
       }
